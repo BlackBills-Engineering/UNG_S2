@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // ---------- мастер протокола ----------
-const master = new MKR5Master("/dev/ttyUSB0"); // поправь порт при необходимости
+const master = new MKR5Master("/dev/ttyS0"); // поправь порт при необходимости
 const snapshot = new Map();
 
 master.on("update", ({ addr, data }) => {

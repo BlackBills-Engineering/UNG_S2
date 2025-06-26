@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import SerialPort from "serialport";
+import { SerialPort } from "serialport";
 import crc16 from "./crc16.js";
 
 // ---- константы протокола ---------------------------------------------
@@ -35,7 +35,8 @@ function fromBCD(arr) {
 export class MKR5Master extends EventEmitter {
   constructor(portPath = "/dev/ttyS0", baudRate = 9600) {
     super();
-    this.port = new SerialPort(portPath, {
+    this.port = new SerialPort({
+      path: portPath, // ← v10+ ждёт объект с key `path`
       baudRate,
       dataBits: 8,
       parity: "odd",

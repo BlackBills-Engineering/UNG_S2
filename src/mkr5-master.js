@@ -33,7 +33,7 @@ function fromBCD(arr) {
 
 // ---- класс мастера -----------------------------------------------------
 export class MKR5Master extends EventEmitter {
-  constructor(portPath = "/dev/ttyUSB0", baudRate = 9600) {
+  constructor(portPath = "/dev/ttyS0", baudRate = 9600) {
     super();
     this.port = new SerialPort(portPath, {
       baudRate,
